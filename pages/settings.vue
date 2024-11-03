@@ -1,35 +1,38 @@
 <template>
-  <div class="settings container p-4">
+  <div class="settings">
     <Html lang="en">
       <Head>
         <Title>Morning Moxie | Account Settings</Title>
       </Head>
     </Html>
-    <h1 class="mb-5">Account Settings</h1>
-    <supabase-upload-image :image="avatarImage || ''" class="mb-5" />
-    <manage-user-profile />
-    <divider class="my-6 w-2" />
-    <div id="password">
-      <supabase-reset-password />
-    </div>
-    <divider class="my-6 w-2" />
-    <div id="delete">
-      <h4 class="mb-4">Delete Account</h4>
-      <p>
-        Please <a href="mailto:help@justdayspace.com">contact us</a> if you wish
-        to delete your account.
-      </p>
-    </div>
-    <div class="changes-saved-toast">
-      <Message
-        v-if="successMessage"
-        class="mb-4"
-        severity="success"
-        :closable="false"
-        :sticky="false"
-      >
-        Your changes have been saved.
-      </Message>
+    <SecondaryHero />
+    <div class="container p-4">
+      <h1 class="mb-5">Account Settings</h1>
+      <supabase-upload-image :image="avatarImage || ''" class="mb-5" />
+      <manage-user-profile />
+      <divider class="my-6 w-2" />
+      <div id="password">
+        <supabase-reset-password />
+      </div>
+      <divider class="my-6 w-2" />
+      <div id="delete">
+        <h4 class="mb-4">Delete Account</h4>
+        <p>
+          Please <a href="mailto:morningmoxie@4siteusa.com">contact us</a> if
+          you wish to delete your account.
+        </p>
+      </div>
+      <div class="changes-saved-toast">
+        <Message
+          v-if="successMessage"
+          class="mb-4"
+          severity="success"
+          :closable="false"
+          :sticky="false"
+        >
+          Your changes have been saved.
+        </Message>
+      </div>
     </div>
   </div>
 </template>

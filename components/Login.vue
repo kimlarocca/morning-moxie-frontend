@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h1 class="mb-4 mt-2 flex align-items-center">Login</h1>
+    <h2 class="mb-4 mt-2 flex align-items-center">Login</h2>
     <!-- <supabase-login-with-google
       @close-panel="emit('closePanel')"
       class="mb-4"
@@ -16,5 +16,5 @@
 </template>
 
 <script setup>
-const emit = defineEmits( [ 'closePanel' ] )
+const emit = defineEmits(['closePanel'])
 </script>

@@ -3,11 +3,7 @@
     <header class="container p-4">
       <div class="flex align-items-center justify-content-between">
         <nuxt-link to="/" class="plain flex align-items-center">
-          <img
-            src="/images/logo.png"
-            alt="Morning Moxie chat logo"
-            class="logo mr-2"
-          />
+          <Logo class="mr-1" />
           <h2>Morning Moxie</h2>
         </nuxt-link>
         <i
@@ -34,8 +30,5 @@ const visible = ref(false)
 <style lang="scss" scoped>
 header {
   background-color: var(--light-green);
-  .logo {
-    height: 30px;
-  }
 }
 </style>

@@ -5,7 +5,9 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </h3>
-    <Button label="sign up now" class="px-4" />
+    <nuxt-link to="/signup" class="plain">
+      <Button label="sign up now" />
+    </nuxt-link>
   </div>
 </template>
 
@@ -25,9 +27,6 @@ const location = ref('')
   h3 {
     width: 100%;
     max-width: 700px;
-  }
-  h1 {
-    font-size: var(--font-size-16);
   }
 }
 </style>

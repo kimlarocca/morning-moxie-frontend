@@ -1,12 +1,15 @@
 <template>
-  <div class="logout container p-4">
+  <div class="logout">
     <Html lang="en">
       <Head>
         <Title>Morning Moxie | You've Been Logged Out</Title>
       </Head>
     </Html>
-    <h1 class="mb-4">You've Been Logged Out</h1>
-    <p><a href="/">Click here</a> to return to the home page.</p>
+    <SecondaryHero />
+    <div class="container p-4">
+      <h1 class="mb-4">You've Been Logged Out</h1>
+      <p><a href="/">Click here</a> to return to the home page.</p>
+    </div>
   </div>
 </template>
 
