@@ -3,8 +3,9 @@
     <SecondaryHero />
     <ProgressSpinner v-if="loading" />
     <div v-else-if="quote" class="container p-4">
+      <Quote />
       <h1 class="mb-4">{{ quote.quote }}</h1>
-      <p>- {{ quote.author }}</p>
+      <p v-if="quote.author">- {{ quote.author }}</p>
     </div>
     <div v-else class="container p-4">
       <h1 class="mb-4">Quote not found</h1>
@@ -32,3 +33,9 @@ if (error) {
 
 loading.value = false
 </script>
+
+<style lang="scss" scoped>
+.quote-icon {
+  height: 80px;
+}
+</style>

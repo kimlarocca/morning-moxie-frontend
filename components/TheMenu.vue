@@ -36,7 +36,7 @@
         <div v-else>
           <h3 class="mb-3">You are logged out.</h3>
           <Button @click="showLogin = true" label="log in" class="mb-3" />
-          <p class="small mb-6">
+          <p class="mb-6">
             Don't have an account yet?
             <nuxt-link to="/signup" @click="emit('menuClicked', true)">
               Sign up
@@ -47,17 +47,22 @@
     </div>
     <Divider class="my-5" />
     <div class="mx-4">
-      <p v-if="currentUser" class="small mb-3">
+      <p class="mb-3">
+        <nuxt-link to="/quotes" @click="emit('menuClicked', true)">
+          Browse Quotes
+        </nuxt-link>
+      </p>
+      <p v-if="currentUser" class="mb-3">
         <nuxt-link to="/settings" @click="emit('menuClicked', true)">
           Account Settings
         </nuxt-link>
       </p>
-      <p class="small mb-3">
+      <p class="mb-3">
         <nuxt-link to="/help" @click="emit('menuClicked', true)">
           Help
         </nuxt-link>
       </p>
-      <p v-if="currentUser" class="small mb-3">
+      <p v-if="currentUser" class="mb-3">
         <nuxt-link to="/logout" @click="emit('menuClicked', true)">
           Log Out
         </nuxt-link>
