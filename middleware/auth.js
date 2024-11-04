@@ -6,12 +6,11 @@ export default defineNuxtRouteMiddleware( async () => {
   const currentUser = useSupabaseUser()
   const currentUserProfile = useCurrentUserProfile()
   const client = useSupabaseClient()
-  let user = await client.auth.getUser()
-  const session = await client.auth.getSession()
+  const session = useSupabaseSession()
 
-  client.auth.onAuthStateChange( async () => {
-    user = await client.auth.getUser()
-  } )
+  // client.auth.onAuthStateChange( async () => {
+  //   user = await client.auth.getUser()
+  // } )
 
   // function that gets a user profile
   const getProfile = async () => {
@@ -31,17 +30,21 @@ export default defineNuxtRouteMiddleware( async () => {
   }
 
   // check supabase session for logged in user
-  if ( user?.data?.user ) {
-    currentUser.value = user?.data?.user
-  } else if ( session?.data?.session?.user ) {
-    currentUser.value = session?.data?.session?.user
-  }
+  // if ( user?.data?.user ) {
+  //   currentUser.value = user?.data?.user
+  // } else if ( session?.data?.session?.user ) {
+  //   currentUser.value = session?.data?.session?.user
+  // }
 
   // if the user is not authorized, redirect them to the login page
   // if they are, get their profile data
-  if ( !currentUser.value ) {
+  if ( !session.value ) {
     return navigateTo( '/index' )
-  } else if ( !currentUserProfile.value ) {
+  }
+  // if ( !currentUser.value ) {
+  //   return navigateTo( '/index' )
+  // }
+  else if ( !currentUserProfile.value ) {
     getProfile()
   }
 } )
