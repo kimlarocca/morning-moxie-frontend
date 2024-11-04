@@ -7,7 +7,7 @@
         <div class="col col-12 lg:col-4 mb-6 lg:mb-0">
           <div class="lg:pr-6">
             <img
-              src="/images/sunrise-lake-tahoe.jpg"
+              :src="randomImage"
               alt="morning moxie sunrise over lake tahoe"
               class="quote-image"
             />
@@ -40,10 +40,12 @@
 </template>
 
 <script setup>
+import { images } from '~/assets/images'
+
 const client = useSupabaseClient()
 const loading = ref(true)
-const route = useRoute()
 const quote = ref(null)
+const route = useRoute()
 
 const { data, error } = await client
   .from('quotes')
@@ -55,6 +57,14 @@ if (error) {
 } else {
   quote.value = data
 }
+
+// get a random image
+const randomImage = computed(() => {
+  if (images) {
+    const randomIndex = Math.floor(Math.random() * images.length)
+    return `https://ulnfvcevkxchrdwnkgyf.supabase.co/storage/v1/object/public/images/${images[randomIndex].name}`
+  }
+})
 
 loading.value = false
 </script>
