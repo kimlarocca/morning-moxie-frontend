@@ -61,7 +61,7 @@
           determination
         </div>
       </div>
-      <Transition name="slide-down">
+      <Transition name="slide-fade">
         <div v-if="showSearchBar" class="flex align-items-center gap-2 mb-4">
           <div class="p-inputgroup flex-1">
             <InputText v-model="searchFieldValue" placeholder="Search quotes" />
