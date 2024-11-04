@@ -40,7 +40,7 @@ export default defineNuxtRouteMiddleware( async () => {
   // if the user is not authorized, redirect them to the login page
   // if they are, get their profile data
   if ( !currentUser.value ) {
-    return navigateTo( '/' )
+    return navigateTo( '/logout' )
   } else if ( !currentUserProfile.value ) {
     getProfile()
   }

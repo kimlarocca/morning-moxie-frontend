@@ -26,7 +26,7 @@
           </nuxt-link>
         </div>
         <div v-if="currentUser">
-          <h3 class="mb-3">
+          <h3 class="mb-1 pt-1">
             Welcome back<template v-if="currentUserProfile?.full_name"
               >, {{ currentUserProfile?.full_name }} </template
             >!

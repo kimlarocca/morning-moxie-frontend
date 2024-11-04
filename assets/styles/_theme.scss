@@ -4821,9 +4821,9 @@ $max: 7680px;
 }
 
 .p-fileupload-choose:not(.p-disabled):hover {
-    background: var(--purple);
-    color: #ffffff;
+    background: var(--yellow);
     border-color: transparent;
+    opacity: var(--opacity-on-hover);
 }
 .p-fileupload-choose:not(.p-disabled):active {
     background: var(--purple);
