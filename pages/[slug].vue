@@ -75,7 +75,7 @@ loading.value = false
 }
 .quote-image {
   width: 100%;
-  max-height: 400px;
+  max-height: 450px;
   margin-left: 10px;
   border-radius: 20px;
   object-fit: cover;
