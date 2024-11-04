@@ -67,7 +67,7 @@ loading.value = false
   width: 100%;
   max-height: 400px;
   margin-left: 10px;
-  border-radius: var(--border-radius);
+  border-radius: 20px;
   object-fit: cover;
   box-shadow: -10px 10px 0px 0px var(--green);
 }
