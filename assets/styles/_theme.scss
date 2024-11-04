@@ -121,7 +121,7 @@ $max: 7680px;
     --forms-input-outline-color: 1px solid var(--purple);
     --forms-inline-button-padding: 0 1rem;
     --transition: all 0.25s ease-out;
-    --opacity-on-hover: 0.8;
+    --opacity-on-hover: 0.7;
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     color-scheme: light;
 }
@@ -1915,13 +1915,13 @@ $max: 7680px;
 }
 .p-button.p-button-outlined {
     background-color: transparent;
-    color: var(--purple);
+    color: var(--dark-green);
     border: 0 none;
     opacity: 1;
 }
 .p-button.p-button-outlined:enabled:hover {
-    background: var(--white);
-    color: var(--purple);
+    background: transparent;
+    color: var(--dark-green);
     border: 0 none;
     opacity: var(--opacity-on-hover);
 }
@@ -6107,7 +6107,7 @@ $max: 7680px;
     color: var(--black);
 }
 .p-message.p-message-success {
-    background: var(--green-100);
+    background: var(--light-green);
     border: solid transparent;
     border-width: 0 0 0 0;
     color: #1b5e20;

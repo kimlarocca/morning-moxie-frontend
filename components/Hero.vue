@@ -16,17 +16,22 @@ const location = ref('')
 </script>
 
 <style lang="scss" scoped>
+$medium: 768px;
 .hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: url('/images/Hero.jpg') var(--light-green) no-repeat right center;
+  background: url('/images/Hero.jpg') var(--light-green) no-repeat left center;
   background-size: cover;
   min-height: 466px;
   h1,
   h3 {
     width: 100%;
     max-width: 700px;
+  }
+  @media all and (min-width: $medium) {
+    background: url('/images/Hero.jpg') var(--light-green) no-repeat right
+      center;
   }
 }
 </style>

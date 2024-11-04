@@ -137,6 +137,7 @@ table {
 .tag {
   width: fit-content;
   min-width: 50px;
+  height: 32px;
   text-align: center;
   background: var(--light-green);
   border-radius: var(--border-radius);
@@ -150,6 +151,15 @@ table {
   }
   &.active {
     background: var(--yellow);
+  }
+  &.round {
+    border-radius: 50%;
+    padding: 0;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

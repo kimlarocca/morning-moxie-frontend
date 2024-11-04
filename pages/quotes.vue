@@ -5,30 +5,65 @@
     <div v-else-if="quotes" class="container p-4">
       <h1 class="mb-4">Quotes</h1>
       <div class="flex align-items-center gap-2 flex-wrap mb-5">
-        <Button
-          rounded
-          plain
-          icon="pi pi-search"
-          aria-label="search"
+        <div
+          class="tag round clickable"
           @click="showSearchBar = !showSearchBar"
-        />
-        <div class="tag">
-          <i
-            class="pi pi-search clickable"
-            @click="showSearchBar = !showSearchBar"
-          />
+        >
+          <i class="pi pi-search" style="font-size: 0.8rem" />
         </div>
-        <div class="tag">hardship</div>
-        <div class="tag">failure</div>
-        <div class="tag">grief</div>
-        <div class="tag">suffering</div>
-        <div class="tag">strength</div>
-        <div class="tag">perseverance</div>
-        <div class="tag">determination</div>
+        <div
+          class="tag clickable"
+          :class="category === 'hardship' ? 'active' : ''"
+          @click="changeCategory('hardship')"
+        >
+          hardship
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'failure' ? 'active' : ''"
+          @click="changeCategory('failure')"
+        >
+          failure
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'grief' ? 'active' : ''"
+          @click="changeCategory('grief')"
+        >
+          grief
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'suffering' ? 'active' : ''"
+          @click="changeCategory('suffering')"
+        >
+          suffering
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'strength' ? 'active' : ''"
+          @click="changeCategory('strength')"
+        >
+          strength
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'perseverance' ? 'active' : ''"
+          @click="changeCategory('perseverance')"
+        >
+          perseverance
+        </div>
+        <div
+          class="tag clickable"
+          :class="category === 'determination' ? 'active' : ''"
+          @click="changeCategory('determination')"
+        >
+          determination
+        </div>
       </div>
-      <Transition name="fade">
+      <Transition name="slide-down">
         <div v-if="showSearchBar" class="flex align-items-center gap-2 mb-4">
-          <div class="p-inputgroup flex-1 mb-6">
+          <div class="p-inputgroup flex-1">
             <InputText v-model="searchFieldValue" placeholder="Search quotes" />
             <Button
               v-if="searchFieldValue"
@@ -40,6 +75,9 @@
           </div>
         </div>
       </Transition>
+      <p v-if="category || searchFieldValue" class="mb-4">
+        {{ filteredQuotes.length }} quotes found
+      </p>
       <div v-for="quote in filteredQuotes" :key="quote.id" class="mb-4">
         <Quote />
         <nuxt-link :to="`/${quote.slug}`" class="plain">
@@ -57,6 +95,7 @@
 <script setup>
 import Quote from '~/components/Quote.vue'
 
+const category = ref(null)
 const client = useSupabaseClient()
 const loading = ref(true)
 const quotes = ref(null)
@@ -70,20 +109,33 @@ if (error) {
   quotes.value = data
 }
 
-// computed property for filtered quotes based on search field value
+// computed property for filtered quotes based on search field value and category
 const filteredQuotes = computed(() => {
-  if (!searchFieldValue.value) {
-    return quotes.value
+  let filtered = quotes.value
+  if (category.value) {
+    filtered = filtered.filter(item => item[category.value])
   }
-  return quotes.value.filter(item => {
+  if (searchFieldValue.value) {
     const searchTerm = searchFieldValue.value.toLowerCase()
-    return item.quote.toLowerCase().includes(searchTerm)
-  })
+    filtered = filtered.filter(item =>
+      item.quote.toLowerCase().includes(searchTerm)
+    )
+  }
+  return filtered
 })
 
 // clear the search field
 const clearSearchField = () => {
   searchFieldValue.value = ''
+}
+
+// change the category
+const changeCategory = newCategory => {
+  if (category.value === newCategory) {
+    category.value = null
+  } else {
+    category.value = newCategory
+  }
 }
 
 loading.value = false
