@@ -1,15 +1,17 @@
 <template>
-  <div class="quote">
+  <div class="quote-page">
     <SecondaryHero />
     <ProgressSpinner v-if="loading" />
     <div v-else-if="quote" class="container p-4 pt-6">
       <div class="grid">
-        <div class="col col-12 lg:col-4">
-          <img
-            src="/images/sunrise-lake-tahoe.jpg"
-            alt="morning moxie sunrise over lake tahoe"
-            class="quote-image"
-          />
+        <div class="col col-12 lg:col-4 mb-6 lg:mb-0">
+          <div class="lg:pr-6">
+            <img
+              src="/images/sunrise-lake-tahoe.jpg"
+              alt="morning moxie sunrise over lake tahoe"
+              class="quote-image"
+            />
+          </div>
         </div>
         <div class="col col-12 lg:col-8">
           <div class="flex align-items-center gap-2 flex-wrap mb-3">
@@ -63,8 +65,10 @@ loading.value = false
 }
 .quote-image {
   width: 100%;
+  max-height: 400px;
+  margin-left: 10px;
   border-radius: var(--border-radius);
-  height: 400px;
   object-fit: cover;
+  box-shadow: -10px 10px 0px 0px var(--green);
 }
 </style>

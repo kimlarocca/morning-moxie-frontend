@@ -61,8 +61,8 @@ export default defineNuxtConfig({
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     public: {
       environment: process.env.environment ?? 'local',
-      supabaseAuthSignInRedirectTo: process.env.environment === 'local' ? 'http://localhost:3000' : 'https://morningmoxie.com',
-      supabaseSuccessRedirectTo: process.env.environment === 'local' ? 'http://localhost:3000/success' : 'https://morningmoxie.com/success',
+      supabaseAuthSignInRedirectTo: process.env.environment === 'local' ? 'http://localhost:3000' : 'http://159.89.253.12',
+      supabaseSuccessRedirectTo: process.env.environment === 'local' ? 'http://localhost:3000/success' : 'http://159.89.253.12/success',
       supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVsbmZ2Y2V2a3hjaHJkd25rZ3lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkwMDI3MjIsImV4cCI6MjA0NDU3ODcyMn0.01sr5QfiI36ZivATnnCt9Grvqxs3IxKtOf0FPIwxHRY',
       supabaseUrl: 'https://ulnfvcevkxchrdwnkgyf.supabase.co',
       supabaseAuthTokenName: 'sb-ulnfvcevkxchrdwnkgyf-auth-token',
