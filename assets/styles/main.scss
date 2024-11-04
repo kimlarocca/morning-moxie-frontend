@@ -136,21 +136,28 @@ table {
 
 .tag {
   width: fit-content;
-  min-width: 50px;
-  height: 32px;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
   background: var(--light-green);
   border-radius: var(--border-radius);
-  padding: 0.5rem 1rem;
-  font-family: var(--font-family);
+  padding: 0 0.75rem;
   font-size: var(--font-size-3);
+  font-family: var(--font-family);
   font-weight: 500;
   text-transform: uppercase;
-  @media all and (min-width: $medium) {
-    font-size: var(--font-size-4);
-  }
   &.active {
     background: var(--yellow);
+  }
+  &.large {
+    min-width: 50px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 1rem;
+    font-size: var(--font-size-3);
+    @media all and (min-width: $medium) {
+      font-size: var(--font-size-4);
+    }
   }
   &.round {
     border-radius: 50%;
@@ -161,12 +168,6 @@ table {
     align-items: center;
     justify-content: center;
   }
-}
-
-.tag.large {
-  height: 50px;
-  line-height: 50px;
-  padding: 0 1rem;
 }
 
 // prime vue overrides

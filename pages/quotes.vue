@@ -6,55 +6,55 @@
       <h1 class="mb-4">Quotes</h1>
       <div class="flex align-items-center gap-2 flex-wrap mb-5">
         <div
-          class="tag round clickable"
+          class="tag large round clickable"
           @click="showSearchBar = !showSearchBar"
         >
           <i class="pi pi-search" style="font-size: 0.8rem" />
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'hardship' ? 'active' : ''"
           @click="changeCategory('hardship')"
         >
           hardship
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'failure' ? 'active' : ''"
           @click="changeCategory('failure')"
         >
           failure
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'grief' ? 'active' : ''"
           @click="changeCategory('grief')"
         >
           grief
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'suffering' ? 'active' : ''"
           @click="changeCategory('suffering')"
         >
           suffering
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'strength' ? 'active' : ''"
           @click="changeCategory('strength')"
         >
           strength
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'perseverance' ? 'active' : ''"
           @click="changeCategory('perseverance')"
         >
           perseverance
         </div>
         <div
-          class="tag clickable"
+          class="tag large clickable"
           :class="category === 'determination' ? 'active' : ''"
           @click="changeCategory('determination')"
         >

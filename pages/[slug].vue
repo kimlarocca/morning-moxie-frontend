@@ -2,10 +2,33 @@
   <div class="quote">
     <SecondaryHero />
     <ProgressSpinner v-if="loading" />
-    <div v-else-if="quote" class="container p-4">
-      <Quote />
-      <h1 class="mb-4">{{ quote.quote }}</h1>
-      <p v-if="quote.author">- {{ quote.author }}</p>
+    <div v-else-if="quote" class="container p-4 pt-6">
+      <div class="grid">
+        <div class="col col-12 lg:col-4">
+          <img
+            src="/images/sunrise-lake-tahoe.jpg"
+            alt="morning moxie sunrise over lake tahoe"
+            class="quote-image"
+          />
+        </div>
+        <div class="col col-12 lg:col-8">
+          <div class="flex align-items-center gap-2 flex-wrap mb-3">
+            <div v-if="quote.hardship" class="tag">hardship</div>
+            <div v-if="quote.failure" class="tag">failure</div>
+            <div v-if="quote.grief" class="tag">grief</div>
+            <div v-if="quote.strength" class="tag">strength</div>
+            <div v-if="quote.perseverance" class="tag">perseverance</div>
+            <div v-if="quote.determination" class="tag">determination</div>
+          </div>
+          <div class="flex align-items-start gap-2">
+            <Quote />
+            <div>
+              <h1 class="mb-4">{{ quote.quote }}</h1>
+              <p v-if="quote.author" class="mb-4">- {{ quote.author }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div v-else class="container p-4">
       <h1 class="mb-4">Quote not found</h1>
@@ -36,6 +59,12 @@ loading.value = false
 
 <style lang="scss" scoped>
 .quote-icon {
-  height: 80px;
+  width: 130px;
+}
+.quote-image {
+  width: 100%;
+  border-radius: var(--border-radius);
+  height: 400px;
+  object-fit: cover;
 }
 </style>
