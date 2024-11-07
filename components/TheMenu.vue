@@ -82,8 +82,8 @@
 <script setup>
 const currentUser = useSupabaseUser()
 const currentUserProfile = useCurrentUserProfile()
+const showLogin = useLoginMenu()
 const emit = defineEmits(['menuClicked'])
-const showLogin = ref(false)
 </script>
 
 <style lang="scss" scoped>

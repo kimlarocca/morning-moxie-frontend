@@ -1,5 +1,5 @@
 <template>
-  <div class="hero container p-4">
+  <div class="hero p-4">
     <h1 class="mb-4">Get inspired when you wake up every morning</h1>
     <h3 class="mb-5">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

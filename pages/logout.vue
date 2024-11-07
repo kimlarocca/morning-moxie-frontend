@@ -6,8 +6,8 @@
       </Head>
     </Html>
     <SecondaryHero />
-    <div class="container p-4">
-      <h1 class="mb-4">You've Are Logged Out</h1>
+    <div class="p-4">
+      <h1 class="mb-4">You Are Logged Out</h1>
       <p><a href="/">Click here</a> to return to the home page.</p>
     </div>
   </div>

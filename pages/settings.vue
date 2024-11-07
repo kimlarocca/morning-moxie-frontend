@@ -6,7 +6,7 @@
       </Head>
     </Html>
     <SecondaryHero />
-    <div class="container p-4">
+    <div class="p-4">
       <h1 class="mb-5">Account Settings</h1>
       <supabase-upload-image :image="avatarImage || ''" class="mb-5" />
       <divider class="my-6 w-2" />

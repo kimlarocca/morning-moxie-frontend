@@ -24,17 +24,49 @@
           </div>
           <div class="flex align-items-start gap-2">
             <Quote />
-            <div>
-              <h1 class="mb-4">{{ quote.quote }}</h1>
-              <p v-if="quote.author" class="mb-4">- {{ quote.author }}</p>
+            <div class="flex flex-column">
+              <h1>{{ quote.quote }}</h1>
+              <p v-if="quote.author" class="mt-4">- {{ quote.author }}</p>
+              <Divider class="my-6" />
+              <h5 class="mb-3">What does this quote mean to you?</h5>
+              <Textarea
+                v-model="commentToAdd"
+                placeholder="What does this quote mean to you?"
+                rows="3"
+                class="mb-3"
+              />
+              <Button
+                v-if="user"
+                @click="submitComment()"
+                class="mb-4 align-self-end"
+                label="submit"
+              />
+              <Button
+                v-else
+                @click="showLoginMenu()"
+                class="mb-4 align-self-end"
+                label="log in to post"
+              />
             </div>
           </div>
         </div>
       </div>
+      <template v-if="comments.length">
+        <h2 class="mb-5">Thoughts From Our Users</h2>
+        <div v-for="comment in comments" :key="comment.id">
+          <h3>{{ comment.comment }}</h3>
+          <Divider class="my-5 w-2" />
+        </div>
+      </template>
     </div>
-    <div v-else class="container p-4">
+    <div v-else class="p-4">
       <h1 class="mb-4">Quote not found</h1>
-      <p>Sorry! We couldn't find the quote you were looking for.</p>
+      <p class="mb-4">
+        Sorry! We couldn't find the quote you were looking for.
+      </p>
+      <p>
+        <nuxt-link to="/">Click here to return to the home page.</nuxt-link>
+      </p>
     </div>
   </div>
 </template>
@@ -43,19 +75,54 @@
 import { images } from '~/assets/images'
 
 const client = useSupabaseClient()
+const comments = ref([])
 const loading = ref(true)
-const quote = ref(null)
+const commentToAdd = ref(null)
 const route = useRoute()
+const showLogin = useLoginMenu()
+const showMenu = useMainMenu()
+const user = useSupabaseUser()
 
-const { data, error } = await client
+const { data: quote, error: quoteError } = await client
   .from('quotes')
   .select('*')
   .eq('slug', route.params.slug)
   .single()
-if (error) {
-  console.error('quotes database error', error)
-} else {
-  quote.value = data
+if (quoteError) {
+  console.error('quotes database error', quoteError)
+}
+
+const getComments = async () => {
+  const { data, error } = await client
+    .from('comments')
+    .select('*')
+    .eq('slug', route.params.slug)
+  if (error) {
+    console.error('comments database error', error)
+  } else {
+    comments.value = data
+  }
+}
+
+// submit a comment
+const submitComment = async () => {
+  console.log('submitComment 1', commentToAdd.value)
+  if (commentToAdd.value) {
+    console.log('submitComment 2', commentToAdd.value)
+    const { data, error } = await client.from('comments').insert([
+      {
+        slug: route.params.slug,
+        comment: commentToAdd.value,
+        uuid: user.value.id
+      }
+    ])
+    if (error) {
+      console.error('comment database error', error)
+    } else {
+      getComments()
+      commentToAdd.value = null
+    }
+  }
 }
 
 // get a random image
@@ -66,7 +133,16 @@ const randomImage = computed(() => {
   }
 })
 
-loading.value = false
+// show login menu
+const showLoginMenu = () => {
+  showMenu.value = true
+  showLogin.value = true
+}
+
+onMounted(async () => {
+  getComments()
+  loading.value = false
+})
 </script>
 
 <style lang="scss" scoped>

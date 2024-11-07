@@ -58,7 +58,6 @@ const login = async () => {
     }
   } else {
     emit('closePanel')
-    navigateTo('/settings')
   }
 }
 </script>

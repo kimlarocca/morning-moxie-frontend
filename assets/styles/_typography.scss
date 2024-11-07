@@ -34,10 +34,11 @@ h1,
 
 h2,
 .like-h2 {
-  @include typeface(header, 8);
+  @include typeface(header, 11);
+  color: var(--dark-green);
   letter-spacing: 0.5px;
   @media all and (min-width: $medium) {
-    @include typeface(header, 10);
+    @include typeface(header, 13);
     font-weight: 300;
   }
 }
