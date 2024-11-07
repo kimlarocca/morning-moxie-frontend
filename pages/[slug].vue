@@ -31,7 +31,7 @@
               <h5 class="mb-3">What does this quote mean to you?</h5>
               <Textarea
                 v-model="commentToAdd"
-                placeholder="What does this quote mean to you?"
+                placeholder="Type your thoughts here..."
                 rows="3"
                 class="mb-3"
               />
