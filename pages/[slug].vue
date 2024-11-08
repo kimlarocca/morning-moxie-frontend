@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="col col-12 lg:col-8">
-          <div class="flex align-items-center gap-2 flex-wrap mb-3">
+          <div class="flex align-items-center gap-2 flex-wrap mb-4">
             <div v-if="quote.hardship" class="tag">hardship</div>
             <div v-if="quote.failure" class="tag">failure</div>
             <div v-if="quote.grief" class="tag">grief</div>
