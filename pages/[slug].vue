@@ -7,7 +7,7 @@
         <div class="col col-12 lg:col-4 mb-6 lg:mb-0">
           <div class="lg:pr-6">
             <img
-              :src="randomImage"
+              :src="quote.image"
               alt="morning moxie sunrise over lake tahoe"
               class="quote-image"
             />
@@ -124,14 +124,6 @@ const submitComment = async () => {
     }
   }
 }
-
-// get a random image
-const randomImage = computed(() => {
-  if (images) {
-    const randomIndex = Math.floor(Math.random() * images.length)
-    return `https://ulnfvcevkxchrdwnkgyf.supabase.co/storage/v1/object/public/images/${images[randomIndex].name}`
-  }
-})
 
 // show login menu
 const showLoginMenu = () => {
