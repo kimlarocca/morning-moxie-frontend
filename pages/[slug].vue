@@ -72,8 +72,6 @@
 </template>
 
 <script setup>
-import { images } from '~/assets/images'
-
 const client = useSupabaseClient()
 const comments = ref([])
 const loading = ref(true)

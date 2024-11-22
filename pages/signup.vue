@@ -9,8 +9,8 @@
     <div class="container p-4">
       <h1 class="mb-3">Sign Up</h1>
       <p>
-        Please fill out the form below to get started or to get access to manage
-        your current subscription.
+        Wake up to messages designed to uplift, empower, and help you face
+        life's challenges with resilience.
       </p>
       <divider class="my-6 w-2" />
       <div class="width400">

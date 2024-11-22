@@ -19,7 +19,11 @@
     i {
         font-size: var(--font-size-4);
     }
+    &:focus,
+    &:active,
     &:hover,
+    &:enabled:focus,
+    &:enabled:active,
     &:enabled:hover {
         color: var(--black);
         background: var(--yellow);

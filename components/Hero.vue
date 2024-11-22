@@ -1,12 +1,12 @@
 <template>
   <div class="hero p-4">
-    <h1 class="mb-4">Get inspired when you wake up every morning</h1>
+    <h1 class="mb-4">Inspiring texts when you wake up every morning</h1>
     <h3 class="mb-5">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
+      Morning Moxie is your daily dose of positivity. When life feels
+      overwhelming, a little encouragement can make all the difference.
     </h3>
     <nuxt-link to="/signup" class="plain">
-      <Button label="sign up now" />
+      <Button label="sign up" />
     </nuxt-link>
   </div>
 </template>
@@ -28,10 +28,16 @@ $medium: 768px;
   h3 {
     width: 100%;
     max-width: 700px;
+    color: var(--black);
   }
   @media all and (min-width: $medium) {
     background: url('/images/Hero.jpg') var(--light-green) no-repeat right
       center;
+  }
+  @media all and (min-width: 1440px) {
+    background: url('/images/Hero.jpg') var(--light-green) no-repeat right
+      center;
+    background-size: 100% 100%;
   }
 }
 </style>

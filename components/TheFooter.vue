@@ -1,6 +1,6 @@
 <template>
   <footer class="p-4">
-    <Divider class="mb-5" />
+    <Divider class="my-6" />
     <div
       class="flex justify-content-between flex-column text-center lg:text-left lg:flex-row"
     >
@@ -9,7 +9,7 @@
         class="plain flex align-items-center mb-2 justify-content-center lg:justify-content-start"
       >
         <Logo class="mr-1" />
-        <h2>Morning Moxie</h2>
+        <h3 class="green">Morning Moxie</h3>
       </nuxt-link>
       <div>
         <p class="mb-1 text-center lg:text-right">

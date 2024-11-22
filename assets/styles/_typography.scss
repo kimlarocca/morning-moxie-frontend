@@ -35,7 +35,7 @@ h1,
 h2,
 .like-h2 {
   @include typeface(header, 11);
-  color: var(--dark-green);
+  font-weight: 300;
   letter-spacing: 0.5px;
   @media all and (min-width: $medium) {
     @include typeface(header, 13);
@@ -45,10 +45,11 @@ h2,
 
 h3,
 .like-h3 {
-  @include typeface(primary, 7);
+  @include typeface(primary, 8);
   letter-spacing: 0.5px;
+  color: var(--dark-green);
   @media all and (min-width: $medium) {
-    @include typeface(primary, 8);
+    @include typeface(primary, 9);
     letter-spacing: 0.5px;
   }
 }
