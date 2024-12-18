@@ -8,7 +8,7 @@ textarea {
   width: 100%;
   color: var(--text-color);
   font-family: var(--font-family);
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-6);
   font-weight: 300;
   border-radius: 20px;
   border: 1px solid var(--light-gray);
@@ -19,7 +19,7 @@ textarea {
   &::placeholder {
     color: var(--gray);
     font-family: var(--font-family);
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-6);
     font-weight: 300;
     line-height: calc(var(--forms-input-height) / 2);
   }
@@ -31,6 +31,12 @@ textarea {
 .p-password {
   width: 100%;
   line-height: calc(var(--forms-input-height) / 2);
+}
+
+.p-dropdown {
+  height: var(--forms-input-height);
+  border: 1px solid var(--light-gray);
+  border-right: none;
 }
 
 .p-float-label label,

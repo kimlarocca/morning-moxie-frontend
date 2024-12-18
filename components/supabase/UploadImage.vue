@@ -1,6 +1,6 @@
 <template>
   <div class="upload-image">
-    <h3 class="mb-4">Profile Image</h3>
+    <h6 class="mb-4">Profile Image</h6>
     <ProgressSpinner class="inline-block mb-4" v-if="uploading" />
     <Avatar
       v-if="imageUrl"
@@ -32,13 +32,13 @@
           choose-label="Update"
           :auto="true"
           upload-icon="pi pi-image"
-          class="mr-2 fit-width black"
+          class="mr-2 fit-width"
           style="height: 36px; text-transform: capitalize"
         />
         <Button
           v-if="imageUrl"
           @click="deleteImage"
-          class="black p-button-rounded"
+          class="p-button-rounded"
           icon="pi pi-trash"
         />
       </div>

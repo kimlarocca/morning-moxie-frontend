@@ -14,7 +14,7 @@
       </p>
       <divider class="my-6 w-2" />
       <div class="width400">
-        <supabase-signup-with-email class="mb-6" />
+        <supabase-login-with-phone class="mb-6" />
       </div>
     </div>
   </div>

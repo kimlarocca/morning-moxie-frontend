@@ -117,8 +117,8 @@ $max: 7680px;
     --forms-input-font-family: var(--font-family);
     --forms-input-font-size: var(--font-size-5);
     --forms-input-color: var(--text-color);
-    --forms-input-border: 1px solid var(--purple);
-    --forms-input-outline-color: 1px solid var(--purple);
+    --forms-input-border: 1px solid var(--light-green);
+    --forms-input-outline-color: 1px solid var(--light-green);
     --forms-inline-button-padding: 0 1rem;
     --transition: all 0.25s ease-out;
     --opacity-on-hover: 0.7;
@@ -6522,13 +6522,13 @@ $max: 7680px;
 .p-progressbar {
     border: 0 none;
     height: 16px;
-    background: var(--light-gray);
+    background: var(--light-green);
     border-radius: 8px !important;
 }
 .p-progressbar .p-progressbar-value {
     border: 0 none;
     margin: 0;
-    background: var(--purple);
+    background: var(--green);
 }
 .p-progressbar .p-progressbar-label {
     color: #ffffff;

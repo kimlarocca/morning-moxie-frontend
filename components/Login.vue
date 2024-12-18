@@ -1,17 +1,7 @@
 <template>
   <div class="login">
     <h2 class="mb-4 mt-2 flex align-items-center">Login</h2>
-    <!-- <supabase-login-with-google
-      @close-panel="emit('closePanel')"
-      class="mb-4"
-    />
-    <p class="mb-3">Or sign in with email and password:</p> -->
-    <supabase-login-with-email @close-panel="emit('closePanel')" class="mb-4" />
-    <p class="small mb-4">
-      <nuxt-link to="/forgot-password" @click="emit('closePanel')">
-        Forgot Password?
-      </nuxt-link>
-    </p>
+    <supabase-login-with-phone @close-panel="emit('closePanel')" class="mb-4" />
   </div>
 </template>
 

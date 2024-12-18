@@ -19,8 +19,10 @@ import FileUpload from 'primevue/fileupload';
 import InlineMessage from 'primevue/inlinemessage';
 import InputMask from 'primevue/inputmask';
 import InputText from 'primevue/inputtext';
+import InputGroup from 'primevue/inputgroup';
 import InputNumber from 'primevue/inputnumber';
 import InputSwitch from 'primevue/inputswitch';
+import InputOtp from 'primevue/inputotp';
 import Message from "primevue/message"
 import Password from 'primevue/password';
 import ProgressBar from 'primevue/progressbar';
@@ -46,8 +48,10 @@ export default defineNuxtPlugin( ( nuxtApp ) => {
     nuxtApp.vueApp.component( 'FileUpload', FileUpload )
     nuxtApp.vueApp.component( 'InlineMessage', InlineMessage )
     nuxtApp.vueApp.component( 'InputSwitch', InputSwitch )
+    nuxtApp.vueApp.component( 'InputOtp', InputOtp )
     nuxtApp.vueApp.component( 'InputText', InputText )
     nuxtApp.vueApp.component( 'InputMask', InputMask )
+    nuxtApp.vueApp.component( 'InputGroup', InputGroup )
     nuxtApp.vueApp.component( 'InputNumber', InputNumber )
     nuxtApp.vueApp.component( 'Message', Message )
     nuxtApp.vueApp.component( 'Password', Password )

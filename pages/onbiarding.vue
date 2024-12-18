@@ -2,13 +2,12 @@
   <div class="settings">
     <Html lang="en">
       <Head>
-        <Title>Morning Moxie | Account Settings</Title>
+        <Title>Morning Moxie | Let's Get Started</Title>
       </Head>
     </Html>
     <SecondaryHero />
     <div class="p-4">
-      <h1 class="mb-5">Account Settings</h1>
-      <h1 class="mb-5">Account Settings</h1>
+      <h1 class="mb-5">Let's Get Started</h1>
       <supabase-upload-image :image="avatarImage || ''" class="mb-5" />
       <divider class="my-6 w-2" />
       <div id="password">
