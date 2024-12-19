@@ -18,12 +18,13 @@ const location = ref('')
 <style lang="scss" scoped>
 $medium: 768px;
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: url('/images/Hero.jpg') var(--light-green) no-repeat left center;
-  background-size: cover;
   min-height: 266px;
+  background-size: cover;
   h1,
   h3 {
     width: 100%;
@@ -35,10 +36,8 @@ $medium: 768px;
     background: url('/images/Hero.jpg') var(--light-green) no-repeat right
       center;
   }
-  @media all and (min-width: 1440px) {
-    background: url('/images/Hero.jpg') var(--light-green) no-repeat right
-      center;
-    background-size: 100% 100%;
+  @media all and (min-width: 1493px) {
+    background: url('/images/Hero.jpg') var(--light-green) no-repeat left center;
   }
 }
 </style>
