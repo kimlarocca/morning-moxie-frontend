@@ -47,6 +47,11 @@ textarea {
   }
 }
 
+.p-checkbox.p-highlight .p-checkbox-box {
+  background: var(--green);
+  border: var(--green);
+}
+
 .p-float-label label,
 .p-dropdown .p-dropdown-label.p-placeholder,
 label {

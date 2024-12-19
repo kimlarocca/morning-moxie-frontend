@@ -56,7 +56,7 @@
           </InputGroup>
         </div>
         <div v-if="signup" class="mb-4 pl-3 flex">
-          <Checkbox required binary class="mt-1" />
+          <Checkbox required v-model="checked" binary class="mt-1" />
           <p class="text-sm pl-3 mb-1">
             I consent to receive SMS from Morning Moxie.<br />Msg&data rates may
             apply, reply STOP to opt out, HELP for help.
@@ -99,10 +99,11 @@ const props = defineProps({
   }
 })
 
-const phone = ref('')
-const otp = ref('')
-const showOtp = ref(false)
+const checked = ref(false)
 const errorMessage = ref('')
+const otp = ref('')
+const phone = ref('')
+const showOtp = ref(false)
 
 const formattedPhone = computed(() => phone.value.replace(/\D/g, ''))
 
