@@ -1,5 +1,5 @@
 <template>
-  <div class="secondary-hero mb-4" />
+  <div class="secondary-hero lg:mb-4" />
 </template>
 
 <style lang="scss" scoped>

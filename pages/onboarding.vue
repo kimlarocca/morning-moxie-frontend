@@ -165,27 +165,3 @@ const finishOnboarding = async () => {
   }
 }
 </script>
-
-<style lang="scss">
-.category {
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 30px;
-  border: solid 1px var(--light-green);
-  cursor: pointer;
-  transition: var(--transition);
-  margin-bottom: 1rem;
-  &.selected,
-  &:hover {
-    background-color: var(--light-green);
-  }
-}
-.icon {
-  height: 40px;
-  path {
-    fill: var(--dark-green);
-  }
-}
-</style>

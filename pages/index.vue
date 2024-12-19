@@ -17,10 +17,10 @@
         </div>
       </div>
     </div>
-    <divider class="my-6 lg:hidden" />
+    <divider class="mb-6 lg:hidden" />
     <div class="p-4">
-      <h2 class="mb-2 text-center">We're More Than Just Messages</h2>
-      <h3 class="mb-6 text-center">
+      <h2 class="mb-2 lg:text-center">More Than Just Messages</h2>
+      <h3 class="mb-6 lg:text-center">
         Morning Moxie is a Community & Space For Reflection
       </h3>
       <div class="grid">

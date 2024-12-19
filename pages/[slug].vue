@@ -2,9 +2,9 @@
   <div class="quote-page">
     <SecondaryHero />
     <ProgressSpinner v-if="loading" />
-    <div v-else-if="quote" class="container p-4 pt-6">
+    <div v-else-if="quote" class="p-4 lg:pt-6">
       <div class="grid">
-        <div class="col col-12 lg:col-4 mb-6 lg:mb-0">
+        <div class="hidden md:block col col-12 lg:col-4 mb-6 lg:mb-0">
           <div class="lg:pr-6">
             <img
               :src="quote.image"
@@ -22,33 +22,34 @@
             <div v-if="quote.perseverance" class="tag">perseverance</div>
             <div v-if="quote.determination" class="tag">determination</div>
           </div>
-          <div class="flex align-items-start gap-2">
+          <div class="flex align-items-start gap-2 mb-6">
             <Quote />
             <div class="flex flex-column">
               <h1>{{ quote.quote }}</h1>
               <p v-if="quote.author" class="mt-4">- {{ quote.author }}</p>
-              <Divider class="my-6" />
-              <h5 class="mb-3">What does this quote mean to you?</h5>
-              <Textarea
-                v-model="commentToAdd"
-                placeholder="Type your thoughts here..."
-                rows="3"
-                class="mb-3"
-              />
-              <Button
-                v-if="user"
-                @click="submitComment()"
-                class="mb-4 align-self-end"
-                label="submit"
-              />
-              <Button
-                v-else
-                @click="showLoginMenu()"
-                class="mb-4 align-self-end"
-                label="log in to post"
-              />
             </div>
           </div>
+          <Divider class="mb-6" />
+          <div class="pb-6 md:hidden" />
+          <h5 class="mb-3">What does this quote mean to you?</h5>
+          <Textarea
+            v-model="commentToAdd"
+            placeholder="Type your thoughts here..."
+            rows="3"
+            class="mb-3"
+          />
+          <Button
+            v-if="user"
+            @click="submitComment()"
+            class="align-self-end"
+            label="submit"
+          />
+          <Button
+            v-else
+            @click="showLoginMenu()"
+            class="align-self-end"
+            label="log in to post"
+          />
         </div>
       </div>
       <template v-if="comments.length">
@@ -142,7 +143,7 @@ onMounted(async () => {
 .quote-image {
   width: 100%;
   max-height: 450px;
-  margin-left: 10px;
+  margin-left: 5px;
   border-radius: 20px;
   object-fit: cover;
   box-shadow: -10px 10px 0px 0px var(--green);

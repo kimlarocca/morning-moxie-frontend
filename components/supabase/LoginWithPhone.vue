@@ -43,6 +43,7 @@
               </template>
             </Dropdown>
             <InputMask
+              type="tel"
               id="phone"
               class="w-full"
               v-model="phone"

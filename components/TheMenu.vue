@@ -2,7 +2,7 @@
   <nav>
     <div class="mx-3">
       <div
-        class="flex"
+        class="flex mb-6"
         :class="currentUser ? 'align-items-center' : 'align-items-start'"
       >
         <div class="mr-3">
@@ -29,7 +29,7 @@
           </nuxt-link>
         </div>
         <div v-if="currentUser">
-          <h3 class="mb-1 pt-1">
+          <h3>
             Welcome back<template v-if="currentUserProfile?.full_name"
               >, {{ currentUserProfile?.full_name }} </template
             >!
@@ -38,7 +38,7 @@
         <div v-else>
           <h3 class="mb-3">You are logged out.</h3>
           <Button @click="showLogin = true" label="log in" class="mb-3" />
-          <p class="mb-3 small">
+          <p class="lg:mb-3 small">
             Don't have an account yet?
             <nuxt-link to="/signup" @click="emit('menuClicked', true)">
               Sign up
@@ -47,8 +47,8 @@
         </div>
       </div>
     </div>
-    <Divider class="my-5 mb-6" />
-    <div class="mx-4">
+    <Divider class="mb-8 lg:mb-6" />
+    <div class="px-4">
       <p class="mb-3">
         <nuxt-link to="/quotes" @click="emit('menuClicked', true)">
           Browse Quotes

@@ -6,7 +6,7 @@
       </Head>
     </Html>
     <SecondaryHero />
-    <div class="container p-4">
+    <div class="p-4">
       <h1 class="mb-3">Terms</h1>
       <p class="mb-4"><strong>Effective Date:</strong> 11/22/2024</p>
       <divider class="my-6 w-2" />

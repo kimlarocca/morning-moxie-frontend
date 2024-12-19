@@ -1,6 +1,6 @@
 <template>
   <footer class="p-4">
-    <Divider class="my-6" />
+    <Divider class="mb-7" />
     <div
       class="flex justify-content-between flex-column text-center lg:text-left lg:flex-row"
     >
@@ -17,7 +17,9 @@
           <nuxt-link to="/terms" class="mr-3"> Terms </nuxt-link>
           <nuxt-link to="/help"> Help Center </nuxt-link>
         </p>
-        <p>Copyright © {{ currentYear }} Morning Moxie. All Rights Reserved.</p>
+        <p class="mb-1">
+          Copyright © {{ currentYear }} Morning Moxie. All Rights Reserved.
+        </p>
       </div>
     </div>
   </footer>
