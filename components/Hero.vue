@@ -16,7 +16,6 @@ const location = ref('')
 </script>
 
 <style lang="scss" scoped>
-$medium: 768px;
 .hero {
   position: relative;
   display: flex;
@@ -31,7 +30,7 @@ $medium: 768px;
     max-width: 700px;
     color: var(--black);
   }
-  @media all and (min-width: $medium) {
+  @media all and (min-width: 768px) {
     min-height: 466px;
     background: url('/images/Hero.jpg') var(--light-green) no-repeat right
       center;

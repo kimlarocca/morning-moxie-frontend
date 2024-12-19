@@ -2,7 +2,7 @@
   <div class="quote">
     <SecondaryHero />
     <ProgressSpinner v-if="loading" />
-    <div v-else-if="quotes" class="container p-4">
+    <div v-else-if="quotes" class="p-4">
       <h1 class="mb-4">Quotes</h1>
       <div class="flex align-items-center gap-2 flex-wrap mb-5">
         <div

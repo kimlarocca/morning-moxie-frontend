@@ -4,8 +4,13 @@
 
 <style lang="scss" scoped>
 .secondary-hero {
-  background: url('/images/SecondaryHero.jpg') no-repeat right top;
+  background: url('/images/SecondaryHero.jpg') var(--light-green) no-repeat
+    right top;
   background-size: cover;
-  height: 190px;
+  height: 166px;
+  @media all and (min-width: 1400px) {
+    background: url('/images/SecondaryHero.jpg') var(--light-green) no-repeat
+      left center;
+  }
 }
 </style>
