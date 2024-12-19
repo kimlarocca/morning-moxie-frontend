@@ -8,18 +8,17 @@
     <SecondaryHero />
     <div class="p-4">
       <h1 class="mb-5">Account Settings</h1>
-      <h1 class="mb-5">Account Settings</h1>
+      <manage-user-profile class="mb-6" />
+      <divider class="my-6 mb-7 w-2" />
+      <manage-user-categories class="mb-6" />
+      <divider class="my-6 mb-7 w-2" />
       <supabase-upload-image :image="avatarImage || ''" class="mb-5" />
-      <divider class="my-6 w-2" />
-      <div id="password">
-        <supabase-reset-password />
-      </div>
-      <divider class="my-6 w-2" />
+      <divider class="my-6 mb-7 w-2" />
       <div id="delete">
-        <h3 class="mb-4">Delete Account</h3>
+        <h6 class="mb-4">Delete Account</h6>
         <p>
-          Please <a href="mailto:morningmoxie@4siteusa.com">contact us</a> if
-          you wish to delete your account.
+          Please <a href="mailto:hello@morningmoxie.io">contact us</a> if you
+          wish to delete your account.
         </p>
       </div>
       <div class="changes-saved-toast">

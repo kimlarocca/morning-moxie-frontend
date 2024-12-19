@@ -37,6 +37,14 @@ textarea {
   height: var(--forms-input-height);
   border: 1px solid var(--light-gray);
   border-right: none;
+
+  .p-inputtext {
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size-6);
+    font-weight: 300;
+    margin-top: -5px;
+  }
 }
 
 .p-float-label label,

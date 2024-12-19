@@ -7,15 +7,7 @@
     </Html>
     <SecondaryHero />
     <div class="container p-4">
-      <h1 class="mb-3">Sign Up</h1>
-      <p>
-        Wake up to messages designed to uplift, empower, and help you face
-        life's challenges with resilience.
-      </p>
-      <divider class="my-6 w-2" />
-      <div class="width400">
-        <supabase-login-with-phone class="mb-6" />
-      </div>
+      <Signup />
     </div>
   </div>
 </template>

@@ -8,7 +8,8 @@
     </template>
     <Transition name="slide-fade">
       <form v-if="!showOtp" @submit.prevent="login">
-        <p class="mb-3">
+        <h6 v-if="signup" class="mb-3">Enter your phone number:</h6>
+        <p v-else class="mb-3">
           Enter the phone number Morning Moxie uses to send you messages:
         </p>
         <div class="mb-3">
@@ -53,13 +54,24 @@
             />
           </InputGroup>
         </div>
+        <div v-if="signup" class="mb-4 pl-3 flex">
+          <Checkbox required binary class="mt-1" />
+          <p class="text-sm pl-3 mb-1">
+            I consent to receive SMS from Morning Moxie.<br />Msg&data rates may
+            apply, reply STOP to opt out, HELP for help.
+          </p>
+        </div>
         <Button label="Continue" class="w-full" type="submit" />
       </form>
       <form v-else @submit.prevent="verify">
         <div class="mb-4">
-          <InputOtp integerOnly v-model="otp" :length="6" />
+          <InputOtp :autofocus="true" integerOnly v-model="otp" :length="6" />
         </div>
-        <Button label="Login" class="w-full mb-4" type="submit" />
+        <Button
+          :label="signup ? 'Signup' : 'Login'"
+          class="w-full mb-4"
+          type="submit"
+        />
         <p class="text-center mb-4">
           Didn't receive the code?<br /><a @click="login()">Request again</a>
         </p>
@@ -72,9 +84,19 @@
 </template>
 
 <script setup>
-const client = useSupabaseClient()
+const currentUser = useSupabaseUser()
+const currentUserProfile = useCurrentUserProfile()
+const supabase = useSupabaseClient()
+
 const config = useRuntimeConfig()
 const emit = defineEmits(['closePanel'])
+
+const props = defineProps({
+  signup: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const phone = ref('')
 const otp = ref('')
@@ -135,7 +157,7 @@ const clear = () => {
 }
 
 const login = async () => {
-  const error = await client.auth.signInWithOtp({
+  const error = await supabase.auth.signInWithOtp({
     phone: `+${formattedPhone.value}`,
     options: {
       data: {
@@ -156,7 +178,7 @@ const login = async () => {
 }
 
 const verify = async () => {
-  const error = await client.auth.verifyOtp(
+  const error = await supabase.auth.verifyOtp(
     { phone: formattedPhone.value, token: otp.value, type: 'sms' },
     { redirectTo: config.supabaseAuthSignInRedirectTo }
   )
@@ -168,8 +190,22 @@ const verify = async () => {
       errorMessage.value = error
     }
   } else {
-    emit('closePanel')
-    return navigateTo('/settings')
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', currentUser.value.id)
+      .single()
+    if (error) {
+      console.error(error)
+    } else if (data) {
+      currentUserProfile.value = data
+      if (!currentUserProfile.value?.onboarded) {
+        emit('closePanel')
+        return navigateTo('/onboarding')
+      } else {
+        emit('closePanel')
+      }
+    }
   }
 }
 </script>

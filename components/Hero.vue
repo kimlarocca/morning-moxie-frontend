@@ -23,7 +23,7 @@ $medium: 768px;
   justify-content: center;
   background: url('/images/Hero.jpg') var(--light-green) no-repeat left center;
   background-size: cover;
-  min-height: 466px;
+  min-height: 266px;
   h1,
   h3 {
     width: 100%;
@@ -31,6 +31,7 @@ $medium: 768px;
     color: var(--black);
   }
   @media all and (min-width: $medium) {
+    min-height: 466px;
     background: url('/images/Hero.jpg') var(--light-green) no-repeat right
       center;
   }

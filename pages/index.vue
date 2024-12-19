@@ -1,30 +1,30 @@
 <template>
   <div class="home">
-    <Hero class="mb-8" />
-    <div class="p-4 mb-4">
+    <Hero class="mb-6 lg:mb-6" />
+    <div class="px-4">
       <div class="grid">
-        <div class="col col-7">
+        <div class="col col-12 lg:col-6 mb-4">
           <img
             class="rounded"
             src="/images/sunrise-meditation.jpg"
             alt="Sunrise Meditation with Morning Moxie"
           />
         </div>
-        <div class="col col-5">
+        <div class="col col-12 lg:col-6 mb-4">
           <div class="p-2">
-            <h2 class="mb-3">Get Started</h2>
-            <supabase-signup-with-email class="mb-6" />
+            <signup class="mb-4" />
           </div>
         </div>
       </div>
     </div>
+    <divider class="my-6 lg:hidden" />
     <div class="p-4">
       <h2 class="mb-2 text-center">We're More Than Just Messages</h2>
       <h3 class="mb-6 text-center">
         Morning Moxie is a Community & Space For Reflection
       </h3>
       <div class="grid">
-        <div class="col col-4">
+        <div class="col col-12 lg:col-4 mb-4">
           <div class="card h-full">
             <div class="flex align-items-center mb-2">
               <icons-lightbulb />
@@ -38,7 +38,7 @@
             </p>
           </div>
         </div>
-        <div class="col col-4">
+        <div class="col col-12 lg:col-4 mb-4">
           <div class="card h-full">
             <div class="flex align-items-center mb-2">
               <icons-pencil />
@@ -52,7 +52,7 @@
             </p>
           </div>
         </div>
-        <div class="col col-4">
+        <div class="col col-12 lg:col-4 mb-4">
           <div class="card h-full">
             <div class="flex align-items-center mb-2">
               <icons-chat />

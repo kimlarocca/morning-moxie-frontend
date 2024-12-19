@@ -1,14 +1,14 @@
 <template>
   <div v-if="profile && profile.length > 0">
-    <h6 class="mb-2">Name</h6>
+    <h6 class="mb-3">Name</h6>
     <InputText
       v-model="fullName"
       placeholder="Enter your full name here"
       @change="updateProfile"
-      class="mb-4"
+      class="mb-5"
     />
     <h6 class="mb-3">Timezone</h6>
-    <p class="small mb-3">
+    <p class="mb-3">
       Your daily message will be sent at 6am in your selected timezone:
     </p>
     <Dropdown
