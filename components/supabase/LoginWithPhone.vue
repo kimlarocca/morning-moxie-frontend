@@ -148,7 +148,6 @@ const countries = [
   { name: 'Hungary', code: '36', flag: '🇭🇺' },
   { name: 'Iceland', code: '354', flag: '🇮🇸' },
   { name: 'India', code: '91', flag: '🇮🇳' },
-  { name: 'Indonesia', code: '62', flag: '🇮🇩' },
   { name: 'Ireland', code: '353', flag: '🇮🇪' },
   { name: 'Italy', code: '39', flag: '🇮🇹' },
   { name: 'Japan', code: '81', flag: '🇯🇵' },
@@ -194,8 +193,7 @@ const countries = [
   { name: 'United Kingdom', code: '44', flag: '🇬🇧' },
   { name: 'Uruguay', code: '598', flag: '🇺🇾' },
   { name: 'Vatican City', code: '379', flag: '🇻🇦' },
-  { name: 'Venezuela', code: '58', flag: '🇻🇪' },
-  { name: 'Vietnam', code: '84', flag: '🇻🇳' }
+  { name: 'Venezuela', code: '58', flag: '🇻🇪' }
 ]
 
 const signup = () => {
