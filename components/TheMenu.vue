@@ -47,7 +47,6 @@
         </div>
       </div>
     </div>
-    <Divider class="mb-8 lg:mb-6" />
     <div class="px-4">
       <p class="mb-3">
         <nuxt-link to="/quotes" @click="emit('menuClicked', true)">

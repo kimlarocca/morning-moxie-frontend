@@ -83,7 +83,7 @@
           </p>
           <p class="mb-4">
             You'll receive your first message tomorrow morning. We hope it gives
-            you hope you during tough times ❤️
+            you hope during hard times ❤️
           </p>
         </div>
       </transition>
