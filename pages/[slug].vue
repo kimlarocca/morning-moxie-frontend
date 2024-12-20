@@ -52,13 +52,13 @@
           />
         </div>
       </div>
-      <template v-if="comments.length">
+      <div v-if="comments.length" class="mt-6">
         <h2 class="mb-5">Thoughts From Our Users</h2>
         <div v-for="comment in comments" :key="comment.id">
-          <h3>{{ comment.comment }}</h3>
+          <p>{{ comment.comment }}</p>
           <Divider class="my-5 w-2" />
         </div>
-      </template>
+      </div>
     </div>
     <div v-else class="p-4">
       <h1 class="mb-4">Quote not found</h1>
