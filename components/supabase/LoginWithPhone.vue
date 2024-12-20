@@ -64,7 +64,7 @@
         </div>
         <Button label="Continue" class="w-full" type="submit" />
       </form>
-      <form v-else @submit.prevent="verify">
+      <form v-else-if="!showConfirmation" @submit.prevent="verify">
         <div class="mb-4">
           <InputOtp :autofocus="true" integerOnly v-model="otp" :length="6" />
         </div>
@@ -80,6 +80,15 @@
           Don't have an account? <a @click="clear()">Sign Up</a>
         </p>
       </form>
+    </Transition>
+    <Transition name="slide-fade">
+      <Message v-if="showConfirmation" severity="success" :closable="false">
+        Looks like you already have a Morning Moxie account! You are now logged
+        in.
+        <nuxt-link to="/settings">
+          Go to account settings <i class="pi pi-angle-right" />
+        </nuxt-link>
+      </Message>
     </Transition>
   </div>
 </template>
@@ -103,6 +112,7 @@ const checked = ref(false)
 const errorMessage = ref('')
 const otp = ref('')
 const phone = ref('')
+const showConfirmation = ref(false)
 const showOtp = ref(false)
 
 const formattedPhone = computed(() => phone.value.replace(/\D/g, ''))
@@ -206,6 +216,7 @@ const verify = async () => {
         return navigateTo('/onboarding')
       } else {
         emit('closePanel')
+        showConfirmation.value = true
       }
     }
   }
