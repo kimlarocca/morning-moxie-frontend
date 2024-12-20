@@ -81,6 +81,10 @@
             You can always update your profile later in your
             <nuxt-link to="/settings">account settings</nuxt-link>.
           </p>
+          <p class="mb-4">
+            You'll receive your first message tomorrow morning. We hope it gives
+            you hope you during tough times ❤️
+          </p>
         </div>
       </transition>
       <div class="changes-saved-toast">

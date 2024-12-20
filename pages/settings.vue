@@ -6,7 +6,7 @@
       </Head>
     </Html>
     <SecondaryHero />
-    <div class="p-4">
+    <div v-if="currentUser" class="p-4">
       <h1 class="mb-5">Account Settings</h1>
       <manage-user-profile class="mb-6" />
       <divider class="my-6 mb-7 w-2" />
