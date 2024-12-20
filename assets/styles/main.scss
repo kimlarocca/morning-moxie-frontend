@@ -224,8 +224,7 @@ table {
   cursor: pointer;
   transition: var(--transition);
   margin-bottom: 1rem;
-  &.selected,
-  &:hover {
+  &.selected {
     background-color: var(--light-green);
   }
 }
