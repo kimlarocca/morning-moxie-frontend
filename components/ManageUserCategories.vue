@@ -1,57 +1,71 @@
 <template>
-  <h6 class="mb-4">Inspiration Category</h6>
+  <h6 class="mb-4">Inspiration Categories</h6>
   <div
     class="category"
-    :class="category === 'grief' ? 'selected' : ''"
-    @click="category = 'grief'"
+    :class="{
+      selected: category.includes('grief')
+    }"
+    @click="toggleCategory('grief')"
   >
     <p>Grief</p>
     <IconsRainCloud />
   </div>
   <div
     class="category"
-    :class="category === 'suffering' ? 'selected' : ''"
-    @click="category = 'suffering'"
+    :class="{
+      selected: category.includes('suffering')
+    }"
+    @click="toggleCategory('suffering')"
   >
     <p>Suffering</p>
     <IconsSad />
   </div>
   <div
     class="category"
-    :class="category === 'strength' ? 'selected' : ''"
-    @click="category = 'strength'"
+    :class="{
+      selected: category.includes('strength')
+    }"
+    @click="toggleCategory('strength')"
   >
     <p>Strength</p>
     <IconsDiamond />
   </div>
   <div
     class="category"
-    :class="category === 'determination' ? 'selected' : ''"
-    @click="category = 'determination'"
+    :class="{
+      selected: category.includes('determination')
+    }"
+    @click="toggleCategory('determination')"
   >
     <p>Determination</p>
     <IconsRocket />
   </div>
   <div
     class="category"
-    :class="category === 'hardship' ? 'selected' : ''"
-    @click="category = 'hardship'"
+    :class="{
+      selected: category.includes('hardship')
+    }"
+    @click="toggleCategory('hardship')"
   >
     <p>Hardship</p>
     <IconsUmbrella />
   </div>
   <div
     class="category"
-    :class="category === 'failure' ? 'selected' : ''"
-    @click="category = 'failure'"
+    :class="{
+      selected: category.includes('failure')
+    }"
+    @click="toggleCategory('failure')"
   >
     <p>Failure</p>
     <IconsFailure />
   </div>
   <div
     class="category mb-4"
-    :class="category === 'perseverance' ? 'selected' : ''"
-    @click="category = 'perseverance'"
+    :class="{
+      selected: category.includes('perseverance')
+    }"
+    @click="toggleCategory('perseverance')"
   >
     <p>Perseverance</p>
     <IconsCloudy />
@@ -74,19 +88,24 @@ const currentUser = useSupabaseUser()
 const currentUserProfile = useCurrentUserProfile()
 const supabase = useSupabaseClient()
 
-const category = ref(currentUserProfile.value?.category ?? null)
+const category = ref(currentUserProfile.value?.category ?? [])
 const successMessage = ref(false)
 
-// watch for changes to the category
-watch(category, () => {
+// toggle the categories
+const toggleCategory = selectedCategory => {
+  if (category.value?.includes(selectedCategory)) {
+    category.value = category.value.filter(item => item !== selectedCategory)
+  } else {
+    category.value.push(selectedCategory)
+  }
   updateProfile()
-})
+}
 
 const updateProfile = async () => {
   successMessage.value = false
   const { error } = await supabase
     .from('profiles')
-    .upsert({
+    .update({
       id: currentUser.value.id,
       updated_at: new Date().toISOString(),
       category: category.value

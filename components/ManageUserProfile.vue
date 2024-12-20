@@ -179,7 +179,7 @@ const updateProfile = async () => {
   successMessage.value = false
   const { error } = await supabase
     .from('profiles')
-    .upsert({
+    .update({
       id: currentUser.value.id,
       updated_at: new Date().toISOString(),
       full_name: fullName.value,
