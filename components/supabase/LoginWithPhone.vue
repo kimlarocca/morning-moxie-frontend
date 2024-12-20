@@ -74,10 +74,12 @@
           type="submit"
         />
         <p class="text-center mb-4">
-          Didn't receive the code?<br /><a @click="login()">Request again</a>
+          Didn't receive the code?<br />
+          <a class="clickable" @click="login()"> Request again </a>
         </p>
         <p class="small text-center">
-          Don't have an account? <a @click="clear()">Sign Up</a>
+          Don't have an account?
+          <a class="clickable" @click="signup()">Sign Up</a>
         </p>
       </form>
     </Transition>
@@ -161,11 +163,13 @@ const countries = [
   { name: 'Venezuela', code: '58', flag: '🇻🇪' }
 ]
 
-const clear = () => {
+const signup = () => {
   phone.value = ''
   otp.value = ''
   errorMessage.value = ''
   showOtp.value = false
+  emit('closePanel')
+  return navigateTo('/signup')
 }
 
 const login = async () => {
