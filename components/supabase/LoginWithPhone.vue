@@ -128,6 +128,7 @@ const selectedCountry = ref({
 const countries = [
   { name: 'Australia', code: '61', flag: '🇦🇺', mask: '(99) 9999-9999' },
   { name: 'Belgium', code: '32', flag: '🇧🇪', mask: '(999) 999-999' },
+  { name: 'Canada', code: '1', flag: '🇨🇦', mask: '(999) 999-9999' },
   { name: 'China', code: '86', flag: '🇨🇳', mask: '(999) 9999-9999' },
   { name: 'Hong Kong', code: '852', flag: '🇭🇰', mask: '(999) 9999-9999' },
   { name: 'Ireland', code: '353', flag: '🇮🇪', mask: '(999) 999-999' },
