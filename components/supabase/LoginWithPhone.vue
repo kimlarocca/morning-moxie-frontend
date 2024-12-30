@@ -50,7 +50,7 @@
               required
               aria-labelledby="phone"
               :mask="`+${selectedCountry?.code} ${selectedCountry?.mask}`"
-              placeholder="Phone Number"
+              :placeholder="`Your ${selectedCountry?.name} Phone Number`"
               fluid
             />
           </InputGroup>
@@ -65,6 +65,9 @@
         <Button label="Continue" class="w-full" type="submit" />
       </form>
       <form v-else-if="!showConfirmation" @submit.prevent="verify">
+        <p class="mb-3">
+          A verification code was sent to {{ phone }}. Please enter it below:
+        </p>
         <div class="mb-4">
           <InputOtp :autofocus="true" integerOnly v-model="otp" :length="6" />
         </div>
