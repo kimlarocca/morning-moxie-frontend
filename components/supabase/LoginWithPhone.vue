@@ -42,14 +42,16 @@
                 </div>
               </template>
             </Dropdown>
-            <InputMask
+            <InputNumber
               type="tel"
               id="phone"
               class="w-full"
               v-model="phone"
               required
+              inputId="withoutgrouping"
+              :useGrouping="false"
               aria-labelledby="phone"
-              :mask="`+${selectedCountry?.code} ${selectedCountry?.mask}`"
+              :prefix="`+${selectedCountry?.code} `"
               :placeholder="`Your ${selectedCountry?.name} Phone Number`"
               fluid
             />
@@ -90,9 +92,8 @@
       <Message v-if="showConfirmation" severity="success" :closable="false">
         Looks like you already have a Morning Moxie account! You are now logged
         in.
-        <nuxt-link to="/settings">
-          Go to account settings <i class="pi pi-angle-right" />
-        </nuxt-link>
+        <nuxt-link to="/settings"> Click here </nuxt-link> to go to your account
+        settings.
       </Message>
     </Transition>
   </div>
@@ -120,7 +121,12 @@ const phone = ref('')
 const showConfirmation = ref(false)
 const showOtp = ref(false)
 
-const formattedPhone = computed(() => phone.value.replace(/\D/g, ''))
+const formattedPhone = computed(() => {
+  if (phone.value) {
+    return `${selectedCountry.value.code}${phone.value}`
+  }
+  return null
+})
 
 const selectedCountry = ref({
   name: 'United States',
