@@ -47,6 +47,8 @@
               id="phone"
               class="w-full"
               v-model="phone"
+              :model-value="phone"
+              @input="e => (phone = e.value)"
               required
               inputId="withoutgrouping"
               :useGrouping="false"
@@ -64,11 +66,17 @@
             apply, reply STOP to opt out, HELP for help.
           </p>
         </div>
-        <Button label="Continue" class="w-full" type="submit" />
+        <Button
+          :disabled="!phone"
+          label="Continue"
+          class="w-full"
+          type="submit"
+        />
       </form>
       <form v-else-if="!showConfirmation" @submit.prevent="verify">
         <p class="mb-3">
-          A verification code was sent to {{ phone }}. Please enter it below:
+          A verification code was sent to {{ selectedCountry?.code
+          }}{{ phone }}. Please enter it below:
         </p>
         <div class="mb-4">
           <InputOtp :autofocus="true" integerOnly v-model="otp" :length="6" />
@@ -115,9 +123,9 @@ const props = defineProps({
 })
 
 const checked = ref(false)
-const errorMessage = ref('')
-const otp = ref('')
-const phone = ref('')
+const errorMessage = ref(null)
+const otp = ref(null)
+const phone = ref(null)
 const showConfirmation = ref(false)
 const showOtp = ref(false)
 
